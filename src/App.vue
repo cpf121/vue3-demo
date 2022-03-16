@@ -1,21 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="nav">
+    <floatball :operates="operates"></floatball>
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import floatball from './components/float-ball'
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    floatball
+  },
+  setup(){
+    const operates=[{
+      name:"todo-list-o",
+      operateName:"addTable",
+      content:"新增",
+      size:20
+    },{
+      name:"balance-list-o",
+      operateName:"batch",
+      content:"批量",
+      size:20
+    }]
+    return{
+      operates
+    }
   }
 }
 </script>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -23,6 +34,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
